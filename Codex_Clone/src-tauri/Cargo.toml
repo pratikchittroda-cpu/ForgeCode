@@ -1,0 +1,35 @@
+[package]
+name = "forgecode"
+version = "0.1.0"
+description = "A local-first autonomous AI coding platform"
+authors = ["ForgeCode Team"]
+edition = "2021"
+rust-version = "1.70"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = [ "api-all"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json", "stream"] }
+futures-util = "0.3"
+tree-sitter = "0.20"
+tree-sitter-typescript = "0.20"
+ignore = "0.4"
+walkdir = "2.4"
+anyhow = "1.0"
+similar = { version = "2.4", features = ["inline"] }
+uuid = { version = "1.6", features = ["v4", "serde"] }
+notify = "6.1"
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite"] }
+portable-pty = "0.8"
+shell-words = "1.1"
+lancedb = "0.29.0"
+
+[features]
+# by default Tauri runs in production mode
+# explicitly enable dev-tools if needed
+custom-protocol = ["tauri/custom-protocol"]
